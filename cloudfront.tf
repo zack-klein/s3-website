@@ -38,12 +38,10 @@ resource "aws_cloudfront_distribution" "cloudfront_distribution" {
     }
   }
 
-  custom_error_response = [
-    {
-      error_caching_min_ttl = 5
-      error_code = 403
-      response_code = 200
-      response_page_path = "/index.html"
-    }
-  ]
+  custom_error_response {
+    error_caching_min_ttl = 5
+    error_code            = 403
+    response_code         = 200
+    response_page_path    = "/index.html"
+  }
 }
